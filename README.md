@@ -1,5 +1,13 @@
-# [Create React App](https://github.com/facebookincubator/create-react-app) with Redux
+# Fuel-React
 
 ### About
 
-This is a boilerplate using the create react app library with redux. As an example, I have provided a simple chat box where you can add and delete a message.
+Compare daily calorie intake with goal calorie intake
+
+### Technologies
+
+1. React
+2. Redux
+3. Webpack
+4. nutritionix(API)
+5. Materialize
