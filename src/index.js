@@ -7,26 +7,31 @@ import { reducer } from './reducers';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import App from './components/App'
+import Home from './components/Home'
 import Step1 from './components/Step1';
+import Step2 from './components/Step2';
 // import Page1User from './components/Page1-user';
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
-// const Page1Split = () => (
-//   <Switch>
-//     <Route exact path="/page1" component={Page1} />
-//     <Route path="/page1/:user" component={Page1User} />
-//   </Switch>
-// )
+
+// const step1props = () => {
+//   return (
+//     <Step1/>
+//   );
+// }
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/step1" component={Step1} />
-      </Switch>
-    </Router>
+    <App>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/step1" component={Step1} />
+          <Route path="/step2" component={Step2} />
+        </Switch>
+      </Router>
+    </App>
   </Provider>,
   document.getElementById('root')
 );
