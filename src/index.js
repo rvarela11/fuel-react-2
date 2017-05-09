@@ -9,17 +9,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './components/App'
 import Home from './components/Home'
 import Step1 from './components/Step1';
-import Step2 from './components/Step2';
-// import Page1User from './components/Page1-user';
+import Step2 from './components/step2/Step2';
+import Step3 from './components/Step3';
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
-
-
-// const step1props = () => {
-//   return (
-//     <Step1/>
-//   );
-// }
 
 ReactDOM.render(
   <Provider store={store}>
@@ -29,6 +22,7 @@ ReactDOM.render(
           <Route exact path="/" component={Home}/>
           <Route path="/step1" component={Step1} />
           <Route path="/step2" component={Step2} />
+          <Route path="/step3" component={Step3} />
         </Switch>
       </Router>
     </App>
