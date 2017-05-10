@@ -4,10 +4,10 @@ const initialState = {
   list: [],
   optionButtonResultsTitle: "Breakfast",
   optionButtonResultsArray: {
-    Breakfast: ["Breakfast"],
-    Lunch: ["Lunch"],
-    Dinner: ["Dinner"],
-    Snack: ["Snack"]
+    Breakfast: [],
+    Lunch: [],
+    Dinner: [],
+    Snack: []
   }
 };
 
@@ -21,7 +21,9 @@ export function reducer (state = initialState, action) {
     case 'GET_ITEM':
       return {
         ...state,
-        list: state.list.concat(action.data)
+        list: [
+          ...state.list.concat(action.data)
+        ]
       }
     case 'STEP2_BUTTON_TITLE':
       return {
@@ -33,8 +35,31 @@ export function reducer (state = initialState, action) {
         ...state,
         optionButtonResultsArray: {
           ...state.optionButtonResultsArray,
-          [state.optionButtonResultsArray[state.optionButtonResultsTitle]]: state.optionButtonResultsArray[state.optionButtonResultsTitle].concat(action.item)
+          [state.optionButtonResultsTitle]: [
+              ...state.optionButtonResultsArray[state.optionButtonResultsTitle].concat(action.item)
+            ]
         }
+      }
+    case 'STEP2_CALORIES':
+      return {
+        ...state,
+        dailyData: state.dailyData + action.dailyNumber
+      }
+    case 'STEP2_REMOVE_ITEM':
+      return {
+        ...state,
+        optionButtonResultsArray: {
+          ...state.optionButtonResultsArray,
+          [state.optionButtonResultsTitle]: [
+            ...state.optionButtonResultsArray[state.optionButtonResultsTitle].slice(0, action.step2Index),
+            ...state.optionButtonResultsArray[state.optionButtonResultsTitle].slice(action.step2Index + 1),
+          ]
+        }
+      }
+    case 'STEP2_REMOVE_CALORIES':
+      return {
+        ...state,
+        dailyData: state.dailyData - action.dailyNumber
       }
     default:
         return state;

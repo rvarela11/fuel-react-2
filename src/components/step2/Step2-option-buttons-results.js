@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
 class Step2OptionButtonResults extends Component {
+
+handleCheckboxChangeUndo = (item,index) => {
+  this.props.removeItemFromArray(index);
+  this.props.step2RemoveCalories(Math.round(item.calories))
+}
+
   render() {
-    console.log(this.props.optionButtonResultsArray);
     const title = this.props.title;
     const optionsArray = this.props.optionButtonResultsArray[title];
 
@@ -11,12 +16,10 @@ class Step2OptionButtonResults extends Component {
       <div className="list-results">
         <ul>
           {optionsArray.map((item, index) => {
+            const displayInfo = `${item.name} = ${item.calories}`;
             return (
-                // <li key={index} onClick={()=> this.handleCheckboxChangeUndo(index)}>
-                //   {item.name} = {item.calories}
-                // </li>
-                <li key={index}>
-                  {item}
+                <li key={index} onClick={this.handleCheckboxChangeUndo.bind(this,item, index)}>
+                  {displayInfo}
                 </li>
             )
           })}

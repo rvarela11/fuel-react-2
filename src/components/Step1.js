@@ -37,7 +37,6 @@ class Step1 extends Component {
       goalCalories = femaleGoalCaloriesRound;
     }
     this.props.step1Calories(goalCalories);
-    console.log(this.context.router);
     this.context.router.history.push('/step2');
   }
 

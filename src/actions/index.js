@@ -42,3 +42,27 @@ export function addItemToArray (item) {
     item
   }
 }
+
+export const STEP2_CALORIES = 'STEP2_CALORIES';
+export function step2Calories (dailyNumber) {
+  return {
+    type: STEP2_CALORIES,
+    dailyNumber
+  }
+}
+
+export const STEP2_REMOVE_ITEM = 'STEP2_REMOVE_ITEM';
+export function removeItemFromArray (index) {
+  return {
+    type: STEP2_REMOVE_ITEM,
+    step2Index: index
+  }
+}
+
+export const STEP2_REMOVE_CALORIES = 'STEP2_REMOVE_CALORIES';
+export function step2RemoveCalories (dailyNumber) {
+  return {
+    type: STEP2_REMOVE_CALORIES,
+    dailyNumber
+  }
+}

@@ -40,8 +40,8 @@ class Step2Results extends Component {
   }
 
   handleCheckboxChange = (item) => {
-    const displayInfo = `${item.name} = ${item.calories}`;
-    this.props.addItemToArray(displayInfo);
+    this.props.addItemToArray(item);
+    this.props.step2Calories(Math.round(item.calories))
   }
 
   render() {
