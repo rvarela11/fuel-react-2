@@ -16,19 +16,19 @@ export function reducer (state = initialState, action) {
     case 'STEP1_CALORIES':
       return {
         ...state,
-        goalData: action.goalNumber
+        goalData: action.payload
       }
     case 'GET_ITEM':
       return {
         ...state,
         list: [
-          ...state.list.concat(action.data)
+          ...state.list.concat(action.payload)
         ]
       }
     case 'STEP2_BUTTON_TITLE':
       return {
         ...state,
-        optionButtonResultsTitle: action.title
+        optionButtonResultsTitle: action.payload
       }
     case 'STEP2_ADD_ITEM':
       return {
@@ -36,14 +36,14 @@ export function reducer (state = initialState, action) {
         optionButtonResultsArray: {
           ...state.optionButtonResultsArray,
           [state.optionButtonResultsTitle]: [
-              ...state.optionButtonResultsArray[state.optionButtonResultsTitle].concat(action.item)
+              ...state.optionButtonResultsArray[state.optionButtonResultsTitle].concat(action.payload)
             ]
         }
       }
     case 'STEP2_CALORIES':
       return {
         ...state,
-        dailyData: state.dailyData + action.dailyNumber
+        dailyData: state.dailyData + action.payload
       }
     case 'STEP2_REMOVE_ITEM':
       return {
@@ -51,15 +51,15 @@ export function reducer (state = initialState, action) {
         optionButtonResultsArray: {
           ...state.optionButtonResultsArray,
           [state.optionButtonResultsTitle]: [
-            ...state.optionButtonResultsArray[state.optionButtonResultsTitle].slice(0, action.step2Index),
-            ...state.optionButtonResultsArray[state.optionButtonResultsTitle].slice(action.step2Index + 1),
+            ...state.optionButtonResultsArray[state.optionButtonResultsTitle].slice(0, action.payload),
+            ...state.optionButtonResultsArray[state.optionButtonResultsTitle].slice(action.payload + 1),
           ]
         }
       }
     case 'STEP2_REMOVE_CALORIES':
       return {
         ...state,
-        dailyData: state.dailyData - action.dailyNumber
+        dailyData: state.dailyData - action.payload
       }
     default:
         return state;

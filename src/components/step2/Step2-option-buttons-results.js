@@ -29,6 +29,4 @@ handleCheckboxChangeUndo = (item,index) => {
   }
 }
 
-
-
 export default Step2OptionButtonResults

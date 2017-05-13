@@ -24,6 +24,4 @@ class Step2OptionButtons extends Component {
   }
 }
 
-
-
 export default Step2OptionButtons

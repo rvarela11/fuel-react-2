@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 class Home extends Component {
 
   componentDidMount() {
+
+    // These functions make the pictures open when clicked
+
     const panels=document.querySelectorAll(".panel");
 
     function toggleClass(e) {

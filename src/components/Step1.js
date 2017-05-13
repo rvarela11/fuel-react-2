@@ -10,37 +10,32 @@ class Step1 extends Component {
   };
 
   state = {
-    fields: {
-      gender: '',
-      weight: '',
-      height: '',
-      age: '',
-      active: '',
-      goal: ''
-    }
+    fields: {}
   }
 
   handleSubmit = (e) => {
+
+    // Function will calculate the goal calories and dispatch the information to the store and later send it to the Counter component
+
     e.preventDefault();
     let goalCalories = 0;
     const fields = this.state.fields;
 
     if (fields.gender === "male") {
       const maleInput = 66 + (6.23 * fields.weight) + (12.7 * fields.height) - (6.8 * fields.age);
-      const maleGoalCalories = Number(maleInput * fields.active);
-      const maleGoalCaloriesRound = Math.round(maleGoalCalories);
-      goalCalories = maleGoalCaloriesRound;
+      goalCalories = Math.round(Number(maleInput * fields.active));
     } else {
       const femaleInput = 655 + (4.35 * fields.weight) + (4.7 * fields.height) - (4.7 * fields.age);
-      const femaleGoalCalories = Number(femaleInput * fields.active);
-      const femaleGoalCaloriesRound = Math.round(femaleGoalCalories);
-      goalCalories = femaleGoalCaloriesRound;
+      goalCalories = Math.round(Number(femaleInput * fields.active));
     }
     this.props.step1Calories(goalCalories);
     this.context.router.history.push('/step2');
   }
 
   handleChange = (e) => {
+
+    // Function will create the fields object (state) that will be used in the handleSubmit function
+
     const value = e.target.value;
     const name = e.target.name;
     const fields = this.state.fields;
@@ -103,10 +98,4 @@ class Step1 extends Component {
   }
 }
 
-const mapDispatchToProps=(dispatch) => {
-    return {
-      step1Calories: (goalCalories) => dispatch(step1Calories(goalCalories))
-    };
-};
-
-export default connect(null, mapDispatchToProps) (Step1);
+export default connect(null, {step1Calories}) (Step1);

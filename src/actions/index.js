@@ -4,7 +4,7 @@ export const STEP1_CALORIES = 'STEP1_CALORIES';
 export function step1Calories (goalNumber) {
   return {
     type: STEP1_CALORIES,
-    goalNumber: goalNumber
+    payload: goalNumber
   }
 }
 
@@ -20,7 +20,7 @@ export function getItems (item) {
     axios.get(url)
       .then((response) => dispatch({
         type: GET_ITEM,
-        data: response.data.hits
+        payload: response.data.hits
       })).catch(function (error) {
         console.log(error);
       })
@@ -31,7 +31,7 @@ export const STEP2_BUTTON_TITLE = 'STEP2_BUTTON_TITLE';
 export function changeButtonTitle (title) {
   return {
     type: STEP2_BUTTON_TITLE,
-    title
+    payload: title
   }
 }
 
@@ -39,7 +39,7 @@ export const STEP2_ADD_ITEM = 'STEP2_ADD_ITEM';
 export function addItemToArray (item) {
   return {
     type: STEP2_ADD_ITEM,
-    item
+    payload: item
   }
 }
 
@@ -47,7 +47,7 @@ export const STEP2_CALORIES = 'STEP2_CALORIES';
 export function step2Calories (dailyNumber) {
   return {
     type: STEP2_CALORIES,
-    dailyNumber
+    payload: dailyNumber
   }
 }
 
@@ -55,7 +55,7 @@ export const STEP2_REMOVE_ITEM = 'STEP2_REMOVE_ITEM';
 export function removeItemFromArray (index) {
   return {
     type: STEP2_REMOVE_ITEM,
-    step2Index: index
+    payload: index
   }
 }
 
@@ -63,6 +63,6 @@ export const STEP2_REMOVE_CALORIES = 'STEP2_REMOVE_CALORIES';
 export function step2RemoveCalories (dailyNumber) {
   return {
     type: STEP2_REMOVE_CALORIES,
-    dailyNumber
+    payload: dailyNumber
   }
 }

@@ -32,6 +32,4 @@ class Step2Input extends Component {
   }
 }
 
-
-
 export default Step2Input

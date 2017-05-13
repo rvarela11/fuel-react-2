@@ -38,17 +38,6 @@ class Step2 extends Component {
   }
 }
 
-const mapDispatchToProps=(dispatch) => {
-    return {
-      getItems: (item) => dispatch(getItems(item)),
-      changeButtonTitle: (title) => dispatch(changeButtonTitle(title)),
-      addItemToArray: (item) => dispatch(addItemToArray(item)),
-      step2Calories: (calories) => dispatch(step2Calories(calories)),
-      removeItemFromArray: (index) => dispatch(removeItemFromArray(index)),
-      step2RemoveCalories: (calories) => dispatch(step2RemoveCalories(calories)),
-    };
-};
-
 const mapStateToProps=(state) => {
     return {
       list: state.list,
@@ -57,4 +46,4 @@ const mapStateToProps=(state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps) (Step2);
+export default connect(mapStateToProps, {getItems, changeButtonTitle, addItemToArray, step2Calories, removeItemFromArray, step2RemoveCalories}) (Step2);

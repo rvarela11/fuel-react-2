@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 class Step2Results extends Component {
 
   renderResultList = () => {
+
+    // Function will parse through the data recieved and create an object. This will make it easier to calculate the total calories
+
     const listData = this.props.list;
     const itemsArray = listData.map(item => item.fields.item_name.split(" - ")[0]);
     const caloriesArray = listData.map(item => item.fields.nf_calories);
